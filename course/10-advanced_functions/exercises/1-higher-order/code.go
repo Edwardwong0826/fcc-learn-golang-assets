@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func getFormattedMessages(messages []string, formatter func) []string {
+// use first-class and higher order functions in below example cases
+// first-class function is function that is treated like any other variable
+// higher order function is function that takes another function as an argument
+// HTTP API handlers
+// Pub/Sub handlers
+// Onlicks callbacks
+func getFormattedMessages(messages []string, formatter func(string) string) []string {
 	formattedMessages := []string{}
 	for _, message := range messages {
 		formattedMessages = append(formattedMessages, formatter(message))

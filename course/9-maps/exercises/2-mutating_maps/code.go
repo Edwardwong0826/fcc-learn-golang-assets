@@ -1,12 +1,27 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"sort"
 )
 
+// maps are also passed by reference
+// to use a struct as key in map also possible and looks simpler
+// map[string]user - means this map string is a key, and user is the value type
 func deleteIfNecessary(users map[string]user, name string) (deleted bool, err error) {
 	// ?
+	existingUser, ok := users[name]
+	if !ok {
+		return false, errors.New("not found")
+	}
+
+	if existingUser.scheduledForDeletion {
+		delete(users, name)
+		return true, nil
+	}
+
+	return false, nil
 }
 
 // don't touch below this line

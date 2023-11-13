@@ -10,6 +10,10 @@ import (
 // the result instead of returning it
 func getLogger(formatter func(string, string) string) func(string, string) {
 	// ?
+	return func(a string, b string) {
+		fmt.Println(formatter(a, b))
+	}
+
 }
 
 // don't touch below this line
