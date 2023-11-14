@@ -4,7 +4,12 @@ import (
 	"fmt"
 )
 
-func (e email) setMessage(newMessage string) {
+// & operator generates a pointer
+// * dereferences a pointer to gain access to the value
+// this is method, a method is just a function with a receiver argument
+// type struct is similiar to class in java, so this setMessage is the method on its\
+// for method, the pointer receiver is more common than value receiver
+func (e *email) setMessage(newMessage string) {
 	e.message = newMessage
 }
 

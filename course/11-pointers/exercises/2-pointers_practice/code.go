@@ -2,10 +2,20 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
+// & operator generates a pointer
+// * dereferences a pointer to gain access to the value
 func removeProfanity(message *string) {
 	// ?
+	var value string
+	value = *message
+	value = strings.ReplaceAll(value, "dang", "****")
+	value = strings.ReplaceAll(value, "shoot", "*****")
+	value = strings.ReplaceAll(value, "heck", "****")
+	*message = value
+
 }
 
 // don't touch below this line
